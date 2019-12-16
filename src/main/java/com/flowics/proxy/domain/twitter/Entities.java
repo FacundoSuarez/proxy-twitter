@@ -3,13 +3,16 @@ package com.flowics.proxy.domain.twitter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Entities {
 
 	private List<Hashtags> hashtags = new ArrayList<Hashtags>();
 	
 	private List<Media> media = new ArrayList<Media>();
 	
-	private List<URLs> urls =  new ArrayList<URLs>();
+	private List<URL> urls =  new ArrayList<URL>();
 	
 	private List<UserMentions> user_mentions = new ArrayList<UserMentions>();
 	
@@ -35,11 +38,11 @@ public class Entities {
 		this.media = media;
 	}
 
-	public List<URLs> getUrls() {
+	public List<URL> getUrls() {
 		return urls;
 	}
 
-	public void setUrls(List<URLs> urls) {
+	public void setUrls(List<URL> urls) {
 		this.urls = urls;
 	}
 

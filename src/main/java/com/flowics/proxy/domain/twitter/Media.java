@@ -16,18 +16,72 @@ public class Media {
 	
 	private String media_url_https;
 	
-	private Size size; //FIXME create size object
+	private Size sizes;
 	
 	private Long source_status_id;
 	
-	private Long source_status_id_str;
+	private String source_status_id_str;
+	
+	private Long source_user_id;
+	
+	private String source_user_id_str;
 	
 	private String type;
 	
 	private String url;
+	
+	private Object features;
+	
+	private Object video_info;
+	
+	private Object additional_media_info;
+	
+	
 
-	
-	
+	public Long getSource_user_id() {
+		return source_user_id;
+	}
+
+	public void setSource_user_id(Long source_user_id) {
+		this.source_user_id = source_user_id;
+	}
+
+	public String getSource_user_id_str() {
+		return source_user_id_str;
+	}
+
+	public void setSource_user_id_str(String source_user_id_str) {
+		this.source_user_id_str = source_user_id_str;
+	}
+
+	public void setSource_status_id_str(String source_status_id_str) {
+		this.source_status_id_str = source_status_id_str;
+	}
+
+	public Object getAdditional_media_info() {
+		return additional_media_info;
+	}
+
+	public void setAdditional_media_info(Object additional_media_info) {
+		this.additional_media_info = additional_media_info;
+	}
+
+	public Object getVideo_info() {
+		return video_info;
+	}
+
+	public void setVideo_info(Object video_info) {
+		this.video_info = video_info;
+	}
+
+	public Object getFeatures() {
+		return features;
+	}
+
+	public void setFeatures(Object features) {
+		this.features = features;
+	}
+
 	public String getDisplay_url() {
 		return display_url;
 	}
@@ -84,12 +138,12 @@ public class Media {
 		this.media_url_https = media_url_https;
 	}
 
-	public Size getSize() {
-		return size;
+	public Size getSizes() {
+		return sizes;
 	}
 
-	public void setSize(Size size) {
-		this.size = size;
+	public void setSizes(Size sizes) {
+		this.sizes = sizes;
 	}
 
 	public Long getSource_status_id() {
@@ -98,14 +152,6 @@ public class Media {
 
 	public void setSource_status_id(Long source_status_id) {
 		this.source_status_id = source_status_id;
-	}
-
-	public Long getSource_status_id_str() {
-		return source_status_id_str;
-	}
-
-	public void setSource_status_id_str(Long source_status_id_str) {
-		this.source_status_id_str = source_status_id_str;
 	}
 
 	public String getType() {

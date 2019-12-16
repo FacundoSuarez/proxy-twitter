@@ -1,13 +1,18 @@
 package com.flowics.proxy.services.impl;
 
+import javax.ws.rs.core.MultivaluedHashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.flowics.proxy.domain.twitter.Token;
+import com.flowics.proxy.domain.twitter.Tweet;
 import com.flowics.proxy.services.TwitterService;
+import com.flowics.proxy.utils.RestService;
 import com.flowics.proxy.utils.TokenTwitterBuilder;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
@@ -25,18 +30,23 @@ public class TwitterServiceImpl implements TwitterService {
 
 	@Autowired
 	private MongoTemplate mongoTemplate;
+	
+	@Autowired
+	private RestService restService;
 
-//	Gson gson = new Gson();
+	@Value("${twitter.statusUrl}")
+	private String statusUrl;
 
 	@Override
-	public Status getStatus(String id) throws TwitterException {
-		Status status = null;
-		asd();
-		status = twitter.showStatus(Long.parseLong(id));
-//		String json = gson.toJson(status, String.class);
-//		DBObject dbObject = (DBObject) JSON.parse(json);
-//		mongoTemplate.insert(dbObject, "status");
-		return status;
+	public Tweet getStatus(String id) {
+		Tweet result = (Tweet) restService.getMethod(statusUrl+id, Tweet.class);
+		return result;
+	}
+	
+	
+	public Tweet getTweet(String id) {
+		
+		return null;
 	}
 
 	@Override
@@ -49,10 +59,10 @@ public class TwitterServiceImpl implements TwitterService {
 	
 	
 	private String asd() {
-		
-		Token result = TokenTwitterBuilder.getToken("emjwjOzNJM1VUZBE33pE6FCCJ", "DOZH47EQbfIIs0nnrErrwuvh06315XFRMPo37izCoPnzo5wnsI");
+	
+		Tweet result = (Tweet) restService.getMethod("https://api.twitter.com/1.1/statuses/show.json?id=210462857140252672",  Tweet.class);
 
-	    System.out.println(result.getAccess_token());
+//	    System.out.println(result.getAccess_token());
 		
 		
 		return "";

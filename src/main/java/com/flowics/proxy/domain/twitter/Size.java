@@ -2,35 +2,48 @@ package com.flowics.proxy.domain.twitter;
 
 public class Size {
 
-	private int w;
-		
-	private int h;
 	
-	private String resize;
+	private GenericSize thumb;
+	
+	private GenericSize small;
+	
+	private GenericSize large;
+	
+	private GenericSize medium;
 
-	public int getW() {
-		return w;
+	public GenericSize getThumb() {
+		return thumb;
 	}
 
-	public void setW(int w) {
-		this.w = w;
+	public void setThumb(GenericSize thumb) {
+		this.thumb = thumb;
 	}
 
-	public int getH() {
-		return h;
+	public GenericSize getSmall() {
+		return small;
 	}
 
-	public void setH(int h) {
-		this.h = h;
+	public void setSmall(GenericSize small) {
+		this.small = small;
 	}
 
-	public String getResize() {
-		return resize;
+	public GenericSize getLarge() {
+		return large;
 	}
 
-	public void setResize(String resize) {
-		this.resize = resize;
+	public void setLarge(GenericSize large) {
+		this.large = large;
 	}
+
+	public GenericSize getMedium() {
+		return medium;
+	}
+
+	public void setMedium(GenericSize medium) {
+		this.medium = medium;
+	}
+	
+	
 	
 	
 }

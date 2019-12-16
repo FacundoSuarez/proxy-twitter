@@ -1,6 +1,7 @@
 package com.flowics.proxy.domain.twitter;
 
-public class URLs {
+
+public class URL {
 
 	private String display_url;
 	
@@ -9,7 +10,8 @@ public class URLs {
 	private Integer[] indices;
 	
 	private String url;
-
+	
+	
 	public String getDisplay_url() {
 		return display_url;
 	}

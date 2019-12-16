@@ -2,7 +2,10 @@ package com.flowics.proxy.domain.twitter;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @XmlRootElement
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Tweet {
 	
 	private String created_at;

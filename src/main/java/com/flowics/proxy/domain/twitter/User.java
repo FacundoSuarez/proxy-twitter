@@ -1,7 +1,10 @@
 package com.flowics.proxy.domain.twitter;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@XmlRootElement
 public class User {
 	
 	private Long id;
@@ -48,6 +51,261 @@ public class User {
 	private String[] withheld_in_countries;
 	
 	private String withheld_scope;
+	
+	private UrlUserEntities entities;
+	
+	private String utc_offset;
+	
+	private String time_zone;
+	
+	private boolean geo_enabled;
+	
+	private String lang;
+	
+	private boolean contributors_enabled;
+	
+	private boolean is_translator;
+	
+	private boolean is_translation_enabled;
+	
+	private String profile_background_color;
+	
+	private String profile_background_image_url;
+	
+	private String profile_background_image_url_https;
+	
+	private String profile_image_url;
+	
+	private boolean profile_background_tile;
+
+	private String profile_link_color;
+	
+	private String profile_sidebar_border_color;
+	
+	private String profile_sidebar_fill_color;
+	
+	private String profile_text_color;
+	
+	private boolean profile_use_background_image;
+	
+	private boolean has_extended_profile;
+
+	private boolean can_media_tag;
+	
+	private String followed_by;
+	
+	private String following;
+	
+	private String follow_request_sent;
+	
+	private String notifications;
+	
+	private String translator_type;
+	
+	
+	
+	
+	
+	
+	public boolean isContributors_enabled() {
+		return contributors_enabled;
+	}
+
+	public void setContributors_enabled(boolean contributors_enabled) {
+		this.contributors_enabled = contributors_enabled;
+	}
+
+	public boolean isIs_translator() {
+		return is_translator;
+	}
+
+	public void setIs_translator(boolean is_translator) {
+		this.is_translator = is_translator;
+	}
+
+	public boolean isIs_translation_enabled() {
+		return is_translation_enabled;
+	}
+
+	public void setIs_translation_enabled(boolean is_translation_enabled) {
+		this.is_translation_enabled = is_translation_enabled;
+	}
+
+	public String getProfile_background_color() {
+		return profile_background_color;
+	}
+
+	public void setProfile_background_color(String profile_background_color) {
+		this.profile_background_color = profile_background_color;
+	}
+
+	public String getProfile_background_image_url() {
+		return profile_background_image_url;
+	}
+
+	public void setProfile_background_image_url(String profile_background_image_url) {
+		this.profile_background_image_url = profile_background_image_url;
+	}
+
+	public String getProfile_background_image_url_https() {
+		return profile_background_image_url_https;
+	}
+
+	public void setProfile_background_image_url_https(String profile_background_image_url_https) {
+		this.profile_background_image_url_https = profile_background_image_url_https;
+	}
+
+	public String getProfile_image_url() {
+		return profile_image_url;
+	}
+
+	public void setProfile_image_url(String profile_image_url) {
+		this.profile_image_url = profile_image_url;
+	}
+
+	public boolean isProfile_background_tile() {
+		return profile_background_tile;
+	}
+
+	public void setProfile_background_tile(boolean profile_background_tile) {
+		this.profile_background_tile = profile_background_tile;
+	}
+
+	public String getProfile_link_color() {
+		return profile_link_color;
+	}
+
+	public void setProfile_link_color(String profile_link_color) {
+		this.profile_link_color = profile_link_color;
+	}
+
+	public String getProfile_sidebar_border_color() {
+		return profile_sidebar_border_color;
+	}
+
+	public void setProfile_sidebar_border_color(String profile_sidebar_border_color) {
+		this.profile_sidebar_border_color = profile_sidebar_border_color;
+	}
+
+	public String getProfile_sidebar_fill_color() {
+		return profile_sidebar_fill_color;
+	}
+
+	public void setProfile_sidebar_fill_color(String profile_sidebar_fill_color) {
+		this.profile_sidebar_fill_color = profile_sidebar_fill_color;
+	}
+
+	public String getProfile_text_color() {
+		return profile_text_color;
+	}
+
+	public void setProfile_text_color(String profile_text_color) {
+		this.profile_text_color = profile_text_color;
+	}
+
+	public boolean isProfile_use_background_image() {
+		return profile_use_background_image;
+	}
+
+	public void setProfile_use_background_image(boolean profile_use_background_image) {
+		this.profile_use_background_image = profile_use_background_image;
+	}
+
+	public boolean isHas_extended_profile() {
+		return has_extended_profile;
+	}
+
+	public void setHas_extended_profile(boolean has_extended_profile) {
+		this.has_extended_profile = has_extended_profile;
+	}
+
+	public boolean isCan_media_tag() {
+		return can_media_tag;
+	}
+
+	public void setCan_media_tag(boolean can_media_tag) {
+		this.can_media_tag = can_media_tag;
+	}
+
+	public String getFollowed_by() {
+		return followed_by;
+	}
+
+	public void setFollowed_by(String followed_by) {
+		this.followed_by = followed_by;
+	}
+
+	public String getFollowing() {
+		return following;
+	}
+
+	public void setFollowing(String following) {
+		this.following = following;
+	}
+
+	public String getFollow_request_sent() {
+		return follow_request_sent;
+	}
+
+	public void setFollow_request_sent(String follow_request_sent) {
+		this.follow_request_sent = follow_request_sent;
+	}
+
+	public String getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(String notifications) {
+		this.notifications = notifications;
+	}
+
+	public String getTranslator_type() {
+		return translator_type;
+	}
+
+	public void setTranslator_type(String translator_type) {
+		this.translator_type = translator_type;
+	}
+
+	public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	public boolean isGeo_enabled() {
+		return geo_enabled;
+	}
+
+	public void setGeo_enabled(boolean geo_enabled) {
+		this.geo_enabled = geo_enabled;
+	}
+
+	public String getTime_zone() {
+		return time_zone;
+	}
+
+	public void setTime_zone(String time_zone) {
+		this.time_zone = time_zone;
+	}
+
+	public String getUtc_offset() {
+		return utc_offset;
+	}
+
+	public void setUtc_offset(String utc_offset) {
+		this.utc_offset = utc_offset;
+	}
+
+	public UrlUserEntities getEntities() {
+		return entities;
+	}
+
+	public void setEntities(UrlUserEntities entities) {
+		this.entities = entities;
+	}
 
 	public Long getId() {
 		return id;
