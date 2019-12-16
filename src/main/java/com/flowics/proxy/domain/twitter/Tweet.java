@@ -1,5 +1,8 @@
 package com.flowics.proxy.domain.twitter;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Tweet {
 	
 	private String created_at;
