@@ -1,15 +1,12 @@
 package com.flowics.proxy.services;
 
-import com.flowics.proxy.domain.twitter.Tweet;
-
-import twitter4j.Status;
-import twitter4j.TwitterException;
-import twitter4j.User;
+import com.flowics.proxy.domain.twitter.Status;
+import com.flowics.proxy.domain.twitter.User;
 
 public interface TwitterService {
 	
-	public Tweet getStatus(String id) throws TwitterException, NumberFormatException;
+	public Status getStatus(String id) throws NumberFormatException;
 	
-	public User getUser(String screenName) throws TwitterException;
+	public User getUser(String screenName);
 
 }

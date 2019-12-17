@@ -1,5 +1,8 @@
 package com.flowics.proxy.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,10 +20,6 @@ import org.springframework.stereotype.Component;
 import com.flowics.proxy.domain.dto.ErrorDTO;
 import com.flowics.proxy.services.TwitterService;
 
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-
 @Component
 @Path("/proxy-twitter")
 public class TwitterController {
@@ -28,38 +27,42 @@ public class TwitterController {
 	@Autowired
 	TwitterService twitterService;
 
+	private final Logger log = LoggerFactory.getLogger(TwitterController.class);
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/status/{id}")
 	public Response getStatus(@PathParam("id") String id) {
-		if(id.chars().allMatch(Character::isDigit)) {
-			try {
-				return Response.ok().entity(twitterService.getStatus(id)).build();
-			} catch (TwitterException e) {
-				ErrorDTO error = new ErrorDTO();
-				error.setDetail(e.getMessage());
-				return Response.status(Status.BAD_REQUEST).entity(error).build();
-			}
-		}else{
+		log.info("Request to get Tweet from id: {}", id);
+		if (id.chars().allMatch(Character::isDigit)) {
+//			try {
+			return Response.ok().entity(twitterService.getStatus(id)).build();
+//			} catch (TwitterException e) {
+//				ErrorDTO error = new ErrorDTO();
+//				error.setDetail(e.getMessage());
+//				return Response.status(Status.BAD_REQUEST).entity(error).build();
+//			}
+		} else {
 			ErrorDTO error = new ErrorDTO();
 			error.setDetail("ID debe contener solo números");
 			return Response.status(Status.BAD_REQUEST).entity(error).build();
 		}
-		
+
 	}
 
 	@GET
 	@Produces("application/json")
 	@Path("/user/{screenName}")
 	public Response getUser(@PathParam("screenName") String screenName) {
-		try {
-			return Response.ok().entity(twitterService.getUser(screenName)).build();
-		} catch (TwitterException e) {
-			e.printStackTrace();
-			ErrorDTO error =  new ErrorDTO();
-			error.setDetail(e.getMessage());
-			return Response.status(Status.BAD_REQUEST).entity(error).build();
-		}
+//		try {
+		log.info("Request to get User from Screen Name: {}", screenName);
+		return Response.ok().entity(twitterService.getUser(screenName)).build();
+//		} catch (TwitterException e) {
+//			e.printStackTrace();
+//			ErrorDTO error =  new ErrorDTO();
+//			error.setDetail(e.getMessage());
+//			return Response.status(Status.BAD_REQUEST).entity(error).build();
+//		}
 	}
 
 }

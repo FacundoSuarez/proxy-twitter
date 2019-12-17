@@ -1,71 +1,51 @@
 package com.flowics.proxy.services.impl;
 
-import javax.ws.rs.core.MultivaluedHashMap;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import com.flowics.proxy.domain.twitter.Token;
-import com.flowics.proxy.domain.twitter.Tweet;
+
+import com.flowics.proxy.domain.twitter.Status;
+import com.flowics.proxy.domain.twitter.User;
 import com.flowics.proxy.services.TwitterService;
+import com.flowics.proxy.utils.MongoUtilities;
 import com.flowics.proxy.utils.RestService;
-import com.flowics.proxy.utils.TokenTwitterBuilder;
+import com.google.gson.Gson;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 
-import twitter4j.Status;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.User;
-
 @Service
 public class TwitterServiceImpl implements TwitterService {
-
-	private Twitter twitter = new TwitterFactory().getInstance();
-
-	@Autowired
-	private MongoTemplate mongoTemplate;
 	
 	@Autowired
 	private RestService restService;
+	
+	@Autowired
+	private MongoUtilities mongoUtilities;
 
 	@Value("${twitter.statusUrl}")
 	private String statusUrl;
 
+	@Value("${twitter.userUrl}")
+	private String userUrl;
+	
+	Gson gson = new Gson();
+	
 	@Override
-	public Tweet getStatus(String id) {
-		Tweet result = (Tweet) restService.getMethod(statusUrl+id, Tweet.class);
+	public Status getStatus(String id) {
+		Status result = (Status) restService.getMethod(statusUrl+id, Status.class);
+		String json = gson.toJson(result, Status.class);
+		mongoUtilities.save(json, "status");
 		return result;
 	}
-	
-	
-	public Tweet getTweet(String id) {
-		
-		return null;
-	}
 
 	@Override
-	public User getUser(String screenName) throws TwitterException {
-		User user = null;
-		user = twitter.showUser(screenName);
-//		String json = gson.toJson(user, User.class);
-		return user;
-	}
-	
-	
-	private String asd() {
-	
-		Tweet result = (Tweet) restService.getMethod("https://api.twitter.com/1.1/statuses/show.json?id=210462857140252672",  Tweet.class);
-
-//	    System.out.println(result.getAccess_token());
-		
-		
-		return "";
+	public User getUser(String screenName)   {
+		User result = (User) restService.getMethod(userUrl+screenName, User.class);
+		String json = gson.toJson(result, User.class);
+		mongoUtilities.save(json, "user");
+		return result;
 	}
 
 }

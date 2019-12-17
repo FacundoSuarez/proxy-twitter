@@ -102,11 +102,29 @@ public class User {
 	
 	private String translator_type;
 	
+	private String profile_location;
+	
+	private Status status;
 	
 	
 	
 	
-	
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public String getProfile_location() {
+		return profile_location;
+	}
+
+	public void setProfile_location(String profile_location) {
+		this.profile_location = profile_location;
+	}
+
 	public boolean isContributors_enabled() {
 		return contributors_enabled;
 	}

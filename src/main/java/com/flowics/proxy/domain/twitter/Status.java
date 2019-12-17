@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @XmlRootElement
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Tweet {
+public class Status {
 	
 	private String created_at;
 	
@@ -42,9 +42,9 @@ public class Tweet {
 	
 	private Boolean is_quote_status;
 	
-	private Tweet quoted_status;
+	private Status quoted_status;
 	
-	private Tweet retweeted_status;
+	private Status retweeted_status;
 	
 	private int quote_count;
 	
@@ -216,19 +216,19 @@ public class Tweet {
 		this.is_quote_status = is_quote_status;
 	}
 
-	public Tweet getQuoted_status() {
+	public Status getQuoted_status() {
 		return quoted_status;
 	}
 
-	public void setQuoted_status(Tweet quoted_status) {
+	public void setQuoted_status(Status quoted_status) {
 		this.quoted_status = quoted_status;
 	}
 
-	public Tweet getRetweeted_status() {
+	public Status getRetweeted_status() {
 		return retweeted_status;
 	}
 
-	public void setRetweeted_status(Tweet retweeted_status) {
+	public void setRetweeted_status(Status retweeted_status) {
 		this.retweeted_status = retweeted_status;
 	}
 
