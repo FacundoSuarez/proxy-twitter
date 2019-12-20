@@ -2,7 +2,10 @@ package com.flowics.proxy.domain.twitter;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @XmlRootElement
 @JsonIgnoreProperties(ignoreUnknown = true)
