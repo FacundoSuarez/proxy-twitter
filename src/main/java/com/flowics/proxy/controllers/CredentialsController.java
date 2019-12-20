@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.flowics.proxy.domain.Credentials;
 import com.flowics.proxy.domain.dto.CredentialsDTO;
 import com.flowics.proxy.services.CredentialsService;
 
@@ -27,6 +26,7 @@ public class CredentialsController {
 	@Produces("application/json")
 	@Path("/create-credentials")
 	public Response createCredentials(CredentialsDTO credentials) {
+		log.info("Request to create token");
 		return Response.ok().entity(credentialsService.createCredentials(credentials)).build();
 	}
 }

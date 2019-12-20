@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.flowics.proxy.domain.Credentials;
-import com.flowics.proxy.domain.twitter.Token;
 import com.flowics.proxy.services.CredentialsService;
 
 @Service

@@ -1,6 +1,5 @@
 package com.flowics.proxy.repository.impl;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
 import com.flowics.proxy.domain.StatusWithData;
-import com.flowics.proxy.domain.twitter.Status;
 import com.flowics.proxy.repository.StatusRepository;
 
 @Repository

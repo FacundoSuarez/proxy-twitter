@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.flowics.proxy.domain.dto.ErrorDTO;
-import com.flowics.proxy.services.StatusService;
 import com.flowics.proxy.services.UserService;
 
 @Component

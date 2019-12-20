@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.flowics.proxy.domain.StatusWithData;
 import com.flowics.proxy.domain.twitter.Status;
-import com.flowics.proxy.domain.twitter.User;
 import com.flowics.proxy.repository.StatusRepository;
 import com.flowics.proxy.services.StatusService;
 import com.flowics.proxy.utils.RestService;

@@ -34,7 +34,6 @@ public class CredentialsRepositoryImpl implements CredentialsRepository{
 	@Override
 	public Credentials saveCredentials(Credentials credentials) {
 		this.mongoOperations.save(credentials);
-		List<Credentials> aas = this.mongoOperations.findAll(Credentials.class);
         return findOne(credentials.getId()).get();
 	}
 

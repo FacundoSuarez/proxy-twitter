@@ -38,6 +38,10 @@ public class Media {
 	
 	
 
+	public String getSource_status_id_str() {
+		return source_status_id_str;
+	}
+
 	public Long getSource_user_id() {
 		return source_user_id;
 	}
