@@ -1,0 +1,12 @@
+spring:
+   data:
+      mongodb.host: localhost
+      mongodb.port: 27017
+      mongodb.uri: mongodb://localhost/proxy-twitter
+      mongo.repositories.enabled: true
+      
+      
+twitter:
+  statusUrl: https://api.twitter.com/1.1/statuses/show.json?id=
+  userUrl: https://api.twitter.com/1.1/users/show.json?screen_name=
+  token: AAAAAAAAAAAAAAAAAAAAADsPBQEAAAAAq0vjLGEK6NffslpBkBocyriupiA%3DDfZPQUeIFD28qPviiLS2xnux7l0xr4URtpCh4puv2oKt0IIzyq
