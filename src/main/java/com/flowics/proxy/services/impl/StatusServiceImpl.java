@@ -23,6 +23,9 @@ public class StatusServiceImpl implements StatusService {
 
 	@Value("${twitter.statusUrl}")
 	private String statusUrl;
+	
+	@Value("${twitter.refreshLimitStatus}")
+	private Long refreshLimit;
 
 //	@Value("${twitter.limitRecurrentRequest}")
 //	private int limitRecurrentRequest;
@@ -73,7 +76,7 @@ public class StatusServiceImpl implements StatusService {
 	 */
 	private boolean checkDiffTimestamp(Long lastupdated) {
 		long diff = System.currentTimeMillis() / 1000 - lastupdated;
-		if (diff > 420L) {
+		if (diff > refreshLimit) {
 			return false;
 		}
 		return true; 
