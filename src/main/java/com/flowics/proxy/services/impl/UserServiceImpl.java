@@ -23,6 +23,9 @@ public class UserServiceImpl implements UserService {
 
 	@Value("${twitter.userUrl}")
 	private String userUrl;
+	
+	@Value("${twitter.refreshLimitUser}")
+	private Long refreshLimit;
 
 	@Override
 	public User getUser(String id) throws Exception {
@@ -62,13 +65,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	/**
-	 * Si la diferencia es mayor a 7 min devuelve true y deberia actualizar el
+	 * Si la diferencia es mayor a lo configurado devuelve true y deberia actualizar el
 	 * user desde twitter
 	 * 
 	 */
 	private boolean checkDiffTimestamp(Long lastupdated) {
 		long diff = System.currentTimeMillis() / 1000 - lastupdated;
-		if (diff > 420L) {
+		if (diff > refreshLimit) {
 			return false;
 		}
 		return true;
