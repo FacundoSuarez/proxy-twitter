@@ -14,4 +14,7 @@ public interface CredentialsRepository {
 	public Optional<Credentials> findOne(String credentialsId);
 	
 	public List<Credentials> findAll();
+	
+	public Optional<Credentials> findByApiKey(String apiKey);
 }
+

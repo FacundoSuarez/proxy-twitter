@@ -46,5 +46,11 @@ public class CredentialsRepositoryImpl implements CredentialsRepository{
 	public List<Credentials> findAll(){
 		return this.mongoOperations.findAll(Credentials.class);
 	}
+	
+	public Optional<Credentials> findByApiKey(String apiKey) {
+		Credentials d = this.mongoOperations.findOne(new Query(Criteria.where("APIkey").is(apiKey)), Credentials.class);
+        Optional<Credentials> credentials = Optional.ofNullable(d);
+        return credentials;
+    }
 
 }

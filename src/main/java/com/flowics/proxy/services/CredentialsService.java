@@ -14,4 +14,6 @@ public interface CredentialsService {
 	public CredentialsDTO createCredentials(CredentialsDTO credentials);
 	
 	public List<Credentials> findAll();
+	
+	public boolean checkIfExist(CredentialsDTO credentialsDTO);
 }
