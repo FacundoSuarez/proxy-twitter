@@ -32,11 +32,17 @@ public class StatusController {
 	public Response getStatus(@PathParam("id") String id) {
 		log.info("Request to get Tweet for id: {}", id);
 		if (id.chars().allMatch(Character::isDigit)) {
-			try {
-				return Response.ok().entity(twitterService.getStatus(id)).build();
-			} catch (Exception e) {
+			if(id != null && id != "") {
+				try {
+					return Response.ok().entity(twitterService.getStatus(id)).build();
+				} catch (Exception e) {
+					ErrorDTO error = new ErrorDTO();
+					error.setDetail(e.getMessage());
+					return Response.status(Status.BAD_REQUEST).entity(error).build();
+				}
+			}else {
 				ErrorDTO error = new ErrorDTO();
-				error.setDetail(e.getMessage());
+				error.setDetail("ID no debe ser vacio o nulo");
 				return Response.status(Status.BAD_REQUEST).entity(error).build();
 			}
 		} else {

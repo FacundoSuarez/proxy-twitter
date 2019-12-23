@@ -28,15 +28,22 @@ public class UserController {
 	@Produces("application/json")
 	@Path("/user/{screenName}")
 	public Response getUser(@PathParam("screenName") String screenName) {
-		try {
-			log.info("Request to get User from Screen Name: {}", screenName);
-			return Response.ok().entity(userService.getUser(screenName)).build();
-		} catch (Exception e) {
-			e.printStackTrace();
+		if(screenName != null && screenName != "") {
+			try {
+				log.info("Request to get User from Screen Name: {}", screenName);
+				return Response.ok().entity(userService.getUser(screenName)).build();
+			} catch (Exception e) {
+				e.printStackTrace();
+				ErrorDTO error = new ErrorDTO();
+				error.setDetail(e.getMessage());
+				return Response.status(Status.BAD_REQUEST).entity(error).build();
+			}
+		}else {
 			ErrorDTO error = new ErrorDTO();
-			error.setDetail(e.getMessage());
+			error.setDetail("Screen name no debe ser vacío ni nulo");
 			return Response.status(Status.BAD_REQUEST).entity(error).build();
 		}
+		
 	}
 
 }
