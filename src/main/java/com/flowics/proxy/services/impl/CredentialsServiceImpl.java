@@ -53,7 +53,7 @@ public class CredentialsServiceImpl implements CredentialsService{
 	
 	@Override
 	public boolean checkIfExist(CredentialsDTO credentialsDTO) {
-		if(!credentialsRepository.findOne(credentialsDTO.getAPI_key()).isPresent()) {
+		if(credentialsRepository.findOne(credentialsDTO.getAPI_key()).isPresent()) {
 			return true;
 		}
 		return false;

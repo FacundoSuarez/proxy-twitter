@@ -32,6 +32,10 @@ public class RestService {
 					.request()
 					.header("Authorization", "Bearer "+ cred.getToken().getAccess_token())
 					.get(Response.class);
+			if(response.getStatus() != 200) {
+				String body = response.readEntity(String.class);
+				throw new Exception(body);
+			}
 			T objectt = className.newInstance();
 			objectt	=   response.readEntity(className);
 			updateCredentials(response.getHeaders(), cred, className.getSimpleName());
